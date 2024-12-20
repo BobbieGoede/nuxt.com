@@ -34,6 +34,7 @@ onBeforeUnmount(stopTimer)
 
 const $contributors = computed(() => contributors.value.length ? contributors.value.slice(start.value, start.value + total) : new Array(total).fill(null))
 function startTimer(ms = 5000) {
+  clearTimeout(currentTimeout)
   currentTimeout = setTimeout(nextContributors, ms)
 }
 function stopTimer() {
